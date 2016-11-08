@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3152657C-6D62-48E6-9CC9-FB85BBFDFA07}</ProjectGuid>
+    <ProjectGuid>{731DDF6B-ED06-4EEC-B0F2-CBA10AA09847}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>com.dfyw.Ibll</RootNamespace>
-    <AssemblyName>com.dfyw.Ibll</AssemblyName>
+    <RootNamespace>com.dfyw.common</RootNamespace>
+    <AssemblyName>com.dfyw.common</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,26 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMemberBLL.cs" />
+    <Compile Include="EncryptManager.cs" />
+    <Compile Include="LogHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\com.dfyw.common\com.dfyw.common.csproj">
-      <Project>{731ddf6b-ed06-4eec-b0f2-cba10aa09847}</Project>
-      <Name>com.dfyw.common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\com.dfyw.dal\com.dfyw.dal.csproj">
-      <Project>{9586b5ce-a5e1-4c98-9b84-49cebe5d393c}</Project>
-      <Name>com.dfyw.dal</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\com.dfyw.entity\com.dfyw.entity.csproj">
-      <Project>{183c2af8-3410-4451-9dc5-9998797720a4}</Project>
-      <Name>com.dfyw.entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\com.dfyw.Idal\com.dfyw.Idal.csproj">
-      <Project>{c567702d-03b2-4f41-a96c-a685e4e419fa}</Project>
-      <Name>com.dfyw.Idal</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

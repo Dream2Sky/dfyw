@@ -59,6 +59,10 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -165,6 +169,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\base.css" />
+    <Content Include="Content\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\css\bootstrap-table-expandable.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrapValidator.min.css" />
+    <Content Include="Content\css\xcConfirm.css" />
+    <Content Include="Content\images\arrows.png" />
+    <Content Include="Content\images\page-bg-black.png" />
+    <Content Include="Content\js\ajaxfileupload.js" />
+    <Content Include="Content\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\js\bootstrap-table-expandable.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\bootstrapValidator.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\xcConfirm.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -174,7 +194,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Global\JsonResult.cs" />
+    <Compile Include="Global\AjaxResult.cs" />
+    <Compile Include="Global\JsonHelper.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -184,6 +205,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Configs\log4net.config" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -198,6 +221,10 @@
     <ProjectReference Include="..\com.dfyw.bll\com.dfyw.bll.csproj">
       <Project>{ea477302-986e-4564-884e-7416cb72d99b}</Project>
       <Name>com.dfyw.bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.dfyw.common\com.dfyw.common.csproj">
+      <Project>{731ddf6b-ed06-4eec-b0f2-cba10aa09847}</Project>
+      <Name>com.dfyw.common</Name>
     </ProjectReference>
     <ProjectReference Include="..\com.dfyw.dal\com.dfyw.dal.csproj">
       <Project>{9586b5ce-a5e1-4c98-9b84-49cebe5d393c}</Project>

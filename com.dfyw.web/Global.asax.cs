@@ -7,6 +7,11 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using com.dfyw.entity;
+using com.dfyw.Idal;
+using com.dfyw.Ibll;
+using com.dfyw.bll;
+using com.dfyw.dal;
 
 namespace com.dfyw.web
 {
@@ -14,7 +19,6 @@ namespace com.dfyw.web
     {
         protected void Application_Start()
         {
-
             var builder = new ContainerBuilder();
             SetupResolveRules(builder);
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
@@ -24,11 +28,14 @@ namespace com.dfyw.web
 
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            log4net.Config.XmlConfigurator.Configure(new System.IO.FileInfo("Configs\\log4net.config"));
         }
 
         private void SetupResolveRules(ContainerBuilder builder)
         {
-
+            builder.RegisterType<MemberDAL>().As<IMemberDAL>();
+            builder.RegisterType<MemberBLL>().As<IMemberBLL>();
         }
     }
 }
