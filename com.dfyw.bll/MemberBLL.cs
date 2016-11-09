@@ -18,6 +18,48 @@ namespace com.dfyw.bll
             _memberDAL = memberDAL;
         }
 
+        public OperatorState AddMember(string name, int role, string parent, ref Member member)
+        {
+            var m = _memberDAL.SelectByAccount(name);
+            if (m != null)
+            {
+                return OperatorState.repeat;
+            }
+
+            Member me = new Member();
+            me.Account = name;
+            me.IsDeleted = false;
+            me.Password = EncryptManager.SHA1("123456");
+
+            me.Role = role;
+            try
+            {
+                me.ParentId = role == 2 ? _memberDAL.SelectByAccount(parent).Id : Guid.Empty;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.writeLog_error(ex.Message);
+                LogHelper.writeLog_error(ex.StackTrace);
+
+                return OperatorState.error;
+            }
+
+            if (_memberDAL.Insert(me))
+            {
+                member = me;
+                return OperatorState.success;
+            }
+            else
+            {
+                return OperatorState.error;
+            }
+        }
+
+        public IEnumerable<Member> GetUsersByRole(int role)
+        {
+            return _memberDAL.SelectByRoles(role);
+        }
+
         public LoginState Login(string account, string password, ref Member member)
         {
             if (string.IsNullOrEmpty(account))

@@ -10,5 +10,6 @@ namespace com.dfyw.Idal
     public interface IMemberDAL:IDataBaseDAL<Member>
     {
         Member SelectByAccount(string account);
+        IEnumerable<Member> SelectByRoles(int role);
     }
 }

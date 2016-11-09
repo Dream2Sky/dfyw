@@ -21,5 +21,17 @@ namespace com.dfyw.dal
                 throw;
             }
         }
+
+        public IEnumerable<Member> SelectByRoles(int role)
+        {
+            try
+            {
+                return db.Set<Member>().Where(n => n.Role == role && n.IsDeleted == false);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

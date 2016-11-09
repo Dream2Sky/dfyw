@@ -11,5 +11,7 @@ namespace com.dfyw.Ibll
     public interface IMemberBLL
     {
         LoginState Login(string account, string password, ref Member member);
+        IEnumerable<Member> GetUsersByRole(int role);
+        OperatorState AddMember(string name, int role, string parent, ref Member member);
     }
 }

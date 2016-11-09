@@ -32,4 +32,27 @@ namespace com.dfyw.common
         /// </summary>
         failed
     }
+
+    /// <summary>
+    /// 这个枚举主要用在数据库操作上 比如增加 修改 删除等等操作
+    /// </summary>
+    public enum OperatorState
+    {
+        /// <summary>
+        /// 空对象
+        /// </summary>
+        empty,
+        /// <summary>
+        /// 操作成功
+        /// </summary>
+        success,
+        /// <summary>
+        /// 操作失败
+        /// </summary>
+        error,
+        /// <summary>
+        /// 重复对象
+        /// </summary>
+        repeat
+    }
 }

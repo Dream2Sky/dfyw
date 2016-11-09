@@ -12,6 +12,7 @@ using com.dfyw.Idal;
 using com.dfyw.Ibll;
 using com.dfyw.bll;
 using com.dfyw.dal;
+using com.dfyw.web.Global;
 
 namespace com.dfyw.web
 {
@@ -29,7 +30,8 @@ namespace com.dfyw.web
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            log4net.Config.XmlConfigurator.Configure(new System.IO.FileInfo("Configs\\log4net.config"));
+            log4net.Config.XmlConfigurator.Configure(new System.IO.FileInfo(Server.MapPath("~/Configs/log4net.config")));
+            RolesManager.LoadXmlConfig(Server.MapPath("~/Configs/roles.config"));
         }
 
         private void SetupResolveRules(ContainerBuilder builder)

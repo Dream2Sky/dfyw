@@ -65,18 +65,11 @@ namespace com.dfyw.web.Controllers
                 result.state = ResultType.success.ToString();
                 result.message = "登陆成功";
 
-                if (member.Role == 0)
-                {
-                    result.data = "/Admin/Index";
-                }
-                else if (member.Role == 1)
-                {
-                    result.data = "/TeamLeader/Index";
-                }
-                else
-                {
-                    result.data = "/Member/Index";
-                }
+                //获取每个角色的首页地址
+                result.data = RolesManager.GetRoleInfo(member.Role).Url;
+
+                // 保存登陆用户到 session
+                LoginManager.SetCurrentUser(member);
 
                 LogHelper.writeLog_info("账号" + member.Account + "于" + DateTime.Now.ToString() + "登陆成功。");
                 return Json(result, JsonRequestBehavior.AllowGet);
@@ -88,6 +81,12 @@ namespace com.dfyw.web.Controllers
             }
 
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Logout()
+        {
+            LoginManager.Clean();
+            return RedirectToAction("Login","Account");
         }
     }
 }

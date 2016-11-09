@@ -100,8 +100,8 @@
                         $(".alert-error span").text(data.message);
                     }
                     else {
-                        //alert(data.data);
-                       // window.location.href = data.data;
+                        sessionStorage.setItem("role", data.data.split('/')[1]);
+                        window.location.href = data.data;
                     }
                 },
                 error: function() {

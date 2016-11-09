@@ -179,6 +179,7 @@
     <Content Include="Content\images\arrows.png" />
     <Content Include="Content\images\page-bg-black.png" />
     <Content Include="Content\js\ajaxfileupload.js" />
+    <Content Include="Content\js\arttemplate.js" />
     <Content Include="Content\js\bootstrap-datetimepicker.min.js" />
     <Content Include="Content\js\bootstrap-table-expandable.js" />
     <Content Include="Content\js\bootstrap.min.js" />
@@ -191,12 +192,17 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Global\AjaxResult.cs" />
     <Compile Include="Global\JsonHelper.cs" />
+    <Compile Include="Global\LoginManager.cs" />
+    <Compile Include="Global\RolesManager.cs" />
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\MemberModel.cs" />
+    <Compile Include="Models\RolesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +213,10 @@
     </Content>
     <Content Include="Configs\log4net.config" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Configs\roles.config" />
+    <Content Include="Views\_LayoutPage.cshtml" />
+    <Content Include="Views\Admin\MemberList.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
